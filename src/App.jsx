@@ -2,17 +2,21 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import SkeletonLoader from "./Components/SkeletonLoader";
 
 function App() {
   const [suwar, setSuwar] = useState([]);
   const audioRef = useRef(null); // Ref for the AudioPlayer
   const suwrahAPI = "https://mp3quran.net/api/v3/suwar?language=ar";
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     axios
       .get(suwrahAPI)
       .then((res) => {
         setSuwar(res.data.suwar); // Ensure this matches the API response structure
+        setLoading(false)
       })
       .catch((error) => console.error(error));
   }, [suwrahAPI]);
@@ -37,7 +41,11 @@ function App() {
       <h1 className="text-3xl col-span-2 sm:col-span-9 text-center text-white">
         تلاوات بصوت الشيخ علي جابر رحمه الله
       </h1>
-      {suwar.map((sura) => (
+      {loading         ? Array.from({ length: 124 }).map((_, index) => <SkeletonLoader key={index} />) // Show 6 skeletons as an example
+
+      :
+      
+      suwar.map((sura) => (
         <button
           key={sura.id}
           className="bg-blue-600 p-3 rounded-lg text-xl font-sans"
