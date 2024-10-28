@@ -72,11 +72,11 @@ function App() {
           <img src={QuranIcon} className="w-9 object-contain mx-5" ></img>
         </button>
       ))}
-      <div className="col-span-2 sm:col-span-9 fixed bottom-0 left-0 right-0 mt-6">
+      <div className="fixed bottom-0 left-0 right-0 mt-6">
         <AudioPlayer ref={audioRef} />
       </div>
 
-      <h1 className="text-black text-4xl text-center p-4">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
+      <h1 className="h-32 text-black text-4xl text-center p-4">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
     </div>
   );
 }
