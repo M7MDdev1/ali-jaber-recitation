@@ -3,8 +3,7 @@ import axios from "axios";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import SkeletonLoader from "./Components/SkeletonLoader";
-import QuranIcon from "./assets/quran.png";
-import Star from "./assets/star.png";
+import Surah from "./Components/Surah";
 
 function App() {
   const [suwar, setSuwar] = useState([]);
@@ -44,39 +43,26 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#4CFFD4] mb-16 font-ArefRuqaa">
-      <h1 className="text-3xl p-9 text-center text-black">
+    <div className=" min-h-screen  bg-slate-600 mb-16 font-ArefRuqaa grid grid-cols-2 sm:grid-cols-3 gap-5 px-10 justify-items-center">
+      <div className="col-span-2 sm:col-span-3 flex flex-col">
+
+      <h1 className="text-3xl p-9 text-center text-white ">
         تلاوات بصوت الشيخ علي جابر رحمه الله
       </h1>
-      <input type="text" placeholder="...ابحث هنا" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="h-10 rounded-3xl text-right text-xl text-gray-500 px-7 border-2 border-gray-400"/>
-      {loading         ? Array.from({ length: 124 }).map((_, index) => <SkeletonLoader key={index} />) // Show 6 skeletons as an example
+      <input type="text" placeholder="...ابحث هنا" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="h-10 w-[80vw] rounded-3xl text-right text-xl text-gray-500 px-7 border-2 border-gray-400"/>
+      </div>
+      {loading         ? Array.from({ length: 124 }).map((_, index) => <SkeletonLoader key={index} />)
 
       :
       
       filteredSuwar.map((sura) => (
-        <button
-          key={sura.id}
-          className="flex justify-between items-center h-16 bg-white text-xl border border-gray-400 font-sans"
-          onClick={() => playAudio(sura.id)} // Call playAudio instead
-        >
-          <div className="flex h-full">
-            <div className="relative">
-              <img src={Star} className="w-17 h-full object-contain mx-4 p-1"/>
-              <p className="absolute text-[#4CFFD4] text-lg font-medium top-1/4 left-1/2 -translate-x-1/2 ">{sura.id}</p>
-            </div>
-            <div className="flex flex-col justify-center text-sm text-left">
-              <span className="font-bold text-lg">{sura.name}</span>
-              <p>{sura.makkia ? "مكية" : "مدنية"}</p>
-            </div>
-          </div>
-          <img src={QuranIcon} className="w-9 object-contain mx-5" ></img>
-        </button>
+  <Surah sura={sura} playAudio={playAudio} />
       ))}
       <div className="fixed bottom-0 left-0 right-0 mt-6">
         <AudioPlayer ref={audioRef} />
       </div>
 
-      <h1 className="h-32 text-black text-4xl text-center p-4">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
+      <h1 className="h-32  text-4xl text-center p-4 col-span-2 sm:col-span-3">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
     </div>
   );
 }
