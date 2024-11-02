@@ -62,7 +62,7 @@ function App() {
         <AudioPlayer ref={audioRef} />
       </div>
 
-      <h1 className="h-32  text-4xl text-center p-4 col-span-2 sm:col-span-3">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
+      <h1 className="h-32  text-4xl text-center p-4 col-span-2 sm:col-span-3 text-white">صدقة جارية لجدتي ليلى مهجري وجميع موتى المسملين</h1>
     </div>
   );
 }

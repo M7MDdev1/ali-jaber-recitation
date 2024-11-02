@@ -12,7 +12,7 @@ export default function Surah({sura,playAudio}:ISurahProps) {
   return (
     <button
     key={sura.id}
-    className=" bg-white py-1 px-2 round font-sans flex justify-center w-full rounded-lg"
+    className=" bg-white py-1 px-2 font-sans flex justify-center w-full rounded-lg"
     onClick={() => playAudio(sura.id)} // Call playAudio instead
   >
       <div className="relative">
