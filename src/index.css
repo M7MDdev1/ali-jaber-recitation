@@ -1,21 +1,18 @@
 @font-face {
-    font-family: "ArefRuqaa";
-    src: url("/fonts/ArefRuqaa-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
+  font-family: "ArefRuqaa";
+  src: url("/fonts/ArefRuqaa-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 
-  @font-face {
-    font-family: "ArefRuqaa";
-    src: url("/fonts/ArefRuqaa-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-
-
+@font-face {
+  font-family: "ArefRuqaa";
+  src: url("/fonts/ArefRuqaa-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
