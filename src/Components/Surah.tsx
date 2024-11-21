@@ -9,6 +9,7 @@ interface ISurahProps {
   playAudio: (id: number) => void;
 }
 export default function Surah({ sura, playAudio }: ISurahProps) {
+  
   return (
     <button
       key={sura.id}

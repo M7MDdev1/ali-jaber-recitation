@@ -61,7 +61,7 @@ function App() {
             <Surah sura={sura} playAudio={playAudio} />
           ))}
       <div className="fixed bottom-0 left-0 right-0 mt-6">
-        <AudioPlayer ref={audioRef} />
+        <AudioPlayer ref={audioRef} showDownloadProgress/>
       </div>
 
       <h1 className="col-span-2 h-32 p-4 text-center text-4xl text-white sm:col-span-3">
